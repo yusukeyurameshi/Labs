@@ -1,5 +1,3 @@
-set -x
-
 sudo yum -y install git.x86_64 oracle-instantclient-release-el8.x86_64 
 sudo yum -y install oracle-instantclient-basic.x86_64 oracle-instantclient-sqlplus.x86_64
 cd
@@ -13,22 +11,27 @@ git clone https://github.com/yusukeyurameshi/Labs.git
 
 cd Labs
 
+echo "DBHost= 146.235.49.161"
+echo "dbauser= system"
+echo "Password= WElcome##123"
+echo "ServiceName= dbteste_pdb1.public.vcngru.oraclevcn.com"
+
 echo -n "DB Host: "
-#read -r DBHost
+read -r DBHost
 
 echo -n "DBA User: "
-#read -r dbauser
+read -r dbauser
 
 echo -n "Password: "
-#read -r Password
+read -r Password
 
 echo -n "Service Name: "
-#read -r ServiceName
+read -r ServiceName
 
-DBHost=146.235.49.161
-dbauser=system
-Password=WElcome##123
-ServiceName=dbteste_pdb1.public.vcngru.oraclevcn.com
+#DBHost=146.235.49.161
+#dbauser=system
+#Password=WElcome##123
+#ServiceName=dbteste_pdb1.public.vcngru.oraclevcn.com
 
 echo "[DEFAULT]
 DBHost = ${DBHost}
@@ -40,3 +43,4 @@ echo "sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @cleanup.s
 echo "sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @install.sql"
 
 sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @cleanup.sql
+sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @install.sql
