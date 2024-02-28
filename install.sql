@@ -1,7 +1,7 @@
 CREATE USER aq_admin IDENTIFIED BY WElcome##123 DEFAULT TABLESPACE users TEMPORARY TABLESPACE temp;
 ALTER USER aq_admin QUOTA UNLIMITED ON users;
 GRANT aq_administrator_role TO aq_admin;
-GRANT connect TO aq_admin;
+GRANT connect, resource TO aq_admin;
 GRANT create type TO aq_admin;
 
 
