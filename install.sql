@@ -3,7 +3,7 @@ ALTER USER aq_admin QUOTA UNLIMITED ON users;
 GRANT aq_administrator_role TO aq_admin;
 GRANT connect, resource TO aq_admin;
 GRANT create type TO aq_admin;
-grant execute on DBMS_AQ to aq_admin
+grant execute on DBMS_AQ to aq_admin;
 
 
 CREATE USER aq_user IDENTIFIED BY WElcome##123 DEFAULT TABLESPACE users TEMPORARY TABLESPACE temp;

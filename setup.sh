@@ -39,8 +39,8 @@ dbauser = ${dbauser}
 Password = ${Password}
 ServiceName = ${ServiceName}">.config
 
-echo "sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @cleanup.sql"
-echo "sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @install.sql"
+#echo "sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @cleanup.sql"
+#echo "sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @install.sql"
 
 sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @cleanup.sql
 sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @install.sql
