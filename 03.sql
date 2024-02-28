@@ -1,4 +1,4 @@
-CREATE PROCEDURE enqueue_json (p_table varchar2, p_payload varchar2) as
+CREATE OR REPLACE PROCEDURE enqueue_json (p_table varchar2, p_payload varchar2) as
 	enqueue_options dbms_aq.enqueue_options_t;
 	message_properties dbms_aq.message_properties_t;
 	message_handle RAW(16);
@@ -19,7 +19,7 @@ END;
 /
 
 
-CREATE PROCEDURE dequeue_json as
+CREATE OR REPLACE PROCEDURE dequeue_json as
 	dequeue_options dbms_aq.dequeue_options_t;
 	message_properties dbms_aq.message_properties_t;
 	message_handle RAW(16);
