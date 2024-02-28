@@ -1,4 +1,4 @@
-CREATE TYPE orders_message_type AS OBJECT (order_details VARCHAR2(4000))
+CREATE TYPE orders_message_type AS OBJECT (table varchar2(30), payload VARCHAR2(4000))
 /
 
 begin

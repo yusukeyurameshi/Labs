@@ -1,11 +1,11 @@
-DECLARE
+CREATE PROCEDURE enqueue_json (p_table varchar2, p_payload varchar2) as
 	enqueue_options dbms_aq.enqueue_options_t;
 	message_properties dbms_aq.message_properties_t;
 	message_handle RAW(16);
 	message aq_admin.orders_message_type;
 	message_id NUMBER;
 BEGIN
-	message := AQ_ADMIN.orders_message_type('teste', 'teste');
+	message := AQ_ADMIN.orders_message_type(p_table, p_payload);
 	-- default for enqueue options VISIBILITY is ON_COMMIT. message has no delay and no expiration
 	-- message_properties.CORRELATION := message.order_id;
 	DBMS_AQ.ENQUEUE (
@@ -19,8 +19,7 @@ END;
 /
 
 
-set SERVEROUTPUT on
-DECLARE
+CREATE PROCEDURE dequeue_json as
 	dequeue_options dbms_aq.dequeue_options_t;
 	message_properties dbms_aq.message_properties_t;
 	message_handle RAW(16);
@@ -47,5 +46,18 @@ BEGIN
 	COMMIT;
 END;
 /
+
+
+BEGIN
+enqueue_json('teste1','teste2');
+end;
+/
+
+set SERVEROUTPUT on
+BEGIN
+dequeue_json();
+end;
+/
+
 
 exit
