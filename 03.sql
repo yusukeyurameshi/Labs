@@ -18,6 +18,7 @@ BEGIN
 END;
 /
 
+grant execute on enqueue_json to SRC_OCIGGLL;
 
 CREATE OR REPLACE PROCEDURE dequeue_json as
 	dequeue_options dbms_aq.dequeue_options_t;
