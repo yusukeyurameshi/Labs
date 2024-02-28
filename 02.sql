@@ -42,7 +42,7 @@ BEGIN
 	dbms_output.put_line('+---------------+');
 	dbms_output.put_line('| MESSAGE PAYLOAD |');
 	dbms_output.put_line('+---------------+');
-	dbms_output.put_line('- Table := ' ||message.table);
+	dbms_output.put_line('- Table := ' ||message.tablename);
 	dbms_output.put_line('- Payload := ' ||message.payload);
 	COMMIT;
 END;
