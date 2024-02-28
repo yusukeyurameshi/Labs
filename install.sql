@@ -10,6 +10,19 @@ CREATE USER aq_user IDENTIFIED BY WElcome##123 DEFAULT TABLESPACE users TEMPORAR
 GRANT aq_user_role TO aq_user; 
 
 
+
+CREATE USER "SRC_OCIGGLL" IDENTIFIED BY "WElcome##123";
+
+GRANT CREATE SESSION TO "SRC_OCIGGLL";
+
+ALTER USER "SRC_OCIGGLL" ACCOUNT UNLOCK;
+
+GRANT CONNECT, RESOURCE  TO "SRC_OCIGGLL";
+
+GRANT UNLIMITED TABLESPACE TO "SRC_OCIGGLL";
+
+
+
 --------------------------------------------------------
 --  File created - @dsgray 3-07-2021   
 --------------------------------------------------------
