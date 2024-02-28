@@ -14,16 +14,21 @@ git clone https://github.com/yusukeyurameshi/Labs.git
 cd Labs
 
 echo -n "DB Host: "
-read -r DBHost
+#read -r DBHost
 
 echo -n "DBA User: "
-read -r dbauser
+#read -r dbauser
 
 echo -n "Password: "
-read -r Password
+#read -r Password
 
 echo -n "Service Name: "
-read -r ServiceName
+#read -r ServiceName
+
+DBHost=146.235.49.161
+dbauser=system
+Password=WElcome##123
+ServiceName=dbteste_pdb1.public.vcngru.oraclevcn.com
 
 echo "[DEFAULT]
 DBHost = ${DBHost}
@@ -33,3 +38,5 @@ ServiceName = ${ServiceName}">.config
 
 echo "sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @cleanup.sql"
 echo "sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @install.sql"
+
+sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @cleanup.sql
