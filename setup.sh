@@ -20,9 +20,14 @@ read -r dbauser
 echo -n "Password: "
 read -r Password
 
+echo -n "Service Name: "
+read -r ServiceName
 
 echo "[DEFAULT]
 DBHost = ${DBHost}
 dbauser = ${dbauser}
-Password = ${Password}">.config
+Password = ${Password}
+ServiceName = ${ServiceName}">.config
 
+sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} cleanup.sql
+sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} install.sql
