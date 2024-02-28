@@ -2,7 +2,10 @@ sudo yum -y install git.x86_64 oracle-instantclient-release-el8.x86_64
 sudo yum -y install oracle-instantclient-basic.x86_64 oracle-instantclient-sqlplus.x86_64
 cd
 
-exit
+echo "export LD_LIBRARY_PATH=/usr/lib/oracle/21/client64/lib
+export PATH=$PATH:/usr/lib/oracle/21/client64/bin">>~/.bashrc
+
+. ~/.bashrc
 
 git clone https://github.com/yusukeyurameshi/Labs.git
 
@@ -22,3 +25,4 @@ echo "[DEFAULT]
 DBHost = ${DBHost}
 dbauser = ${dbauser}
 Password = ${Password}">.config
+
