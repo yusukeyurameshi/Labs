@@ -1,3 +1,5 @@
+set -x
+
 sudo yum -y install git.x86_64 oracle-instantclient-release-el8.x86_64 
 sudo yum -y install oracle-instantclient-basic.x86_64 oracle-instantclient-sqlplus.x86_64
 cd
@@ -29,5 +31,5 @@ dbauser = ${dbauser}
 Password = ${Password}
 ServiceName = ${ServiceName}">.config
 
-sqlplus ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} cleanup.sql
-sqlplus ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} install.sql
+sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @cleanup.sql
+sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @install.sql
