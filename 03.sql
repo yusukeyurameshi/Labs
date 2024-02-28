@@ -14,7 +14,7 @@ BEGIN
 		message_properties => message_properties,
 		payload => message,
 		msgid => message_handle);
-	COMMIT;
+	--COMMIT;
 END;
 /
 
@@ -51,6 +51,7 @@ END;
 
 BEGIN
 enqueue_json('teste1','teste2');
+commit;
 end;
 /
 
