@@ -1,11 +1,12 @@
-CREATE TYPE orders_message_type AS OBJECT (order_details VARCHAR2(4000));
-
+CREATE TYPE orders_message_type AS OBJECT (order_details VARCHAR2(4000))
+/
 
 begin
     DBMS_AQADM.CREATE_QUEUE_TABLE(queue_table => 'aq_admin.orders_qt',
                                 queue_payload_type =>'aq_admin.orders_message_type'
     );
 end;
+/
 
 begin
     DBMS_AQADM.CREATE_QUEUE(queue_name => 'orders_msg_queue',
@@ -18,10 +19,12 @@ begin
                             auto_commit => FALSE
     );
 end;
+/
 
 
 begin
     DBMS_AQADM.START_QUEUE('orders_msg_queue');
 end;
+/
 
 exit
