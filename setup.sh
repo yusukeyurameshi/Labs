@@ -54,7 +54,7 @@ ServiceName = ${ServiceName}">.config
 
 
 sqlplus -s ${dbauser}/${Password}@DBNAME @cleanup.sql
-#sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @install.sql
+sqlplus -s ${dbauser}/${Password}@DBNAME @install.sql
 #sqlplus -s aq_admin/WElcome##123@${DBHost}:1521/${ServiceName} @aq_admin.sql
 #sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @01.sql
 #sqlplus -s aq_admin/WElcome##123@${DBHost}:1521/${ServiceName} @02.sql
