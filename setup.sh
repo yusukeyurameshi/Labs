@@ -24,6 +24,7 @@ sed -i 's/dbservicename/'${ServiceName}'/g' tnsnames.ora
 
 echo "export TNS_ADMIN="`pwd`>>~/.bashrc
 . ~/.bashrc
+. ~/.bashrc
 
 exit
 echo -n "DB Host: "
