@@ -16,8 +16,8 @@ echo "dbauser= system"
 echo "Password= WElcome##123"
 echo "ServiceName= dbteste_pdb1.public.vcngru.oraclevcn.com"
 
-export DBHost=146.235.49.161
-export ServiceName=dbteste_pdb1.public.vcngru.oraclevcn.com
+#export DBHost=146.235.49.161
+#export ServiceName=dbteste_pdb1.public.vcngru.oraclevcn.com
 
 
 echo -n "DB Host: "
