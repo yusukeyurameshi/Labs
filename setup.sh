@@ -19,13 +19,7 @@ echo "ServiceName= dbteste_pdb1.public.vcngru.oraclevcn.com"
 export DBHost=146.235.49.161
 export ServiceName=dbteste_pdb1.public.vcngru.oraclevcn.com
 
-sed -i 's/dbhost/'${DBHost}'/g' tnsnames.ora
-sed -i 's/dbservicename/'${ServiceName}'/g' tnsnames.ora
 
-echo "export TNS_ADMIN="`pwd`>>~/.bashrc
-. ~/.bashrc
-
-exit
 echo -n "DB Host: "
 read -r DBHost
 
@@ -43,21 +37,28 @@ read -r ServiceName
 #Password=WElcome##123
 #ServiceName=dbteste_pdb1.public.vcngru.oraclevcn.com
 
+
+sed -i 's/dbhost/'${DBHost}'/g' tnsnames.ora
+sed -i 's/dbservicename/'${ServiceName}'/g' tnsnames.ora
+
+echo "export TNS_ADMIN="`pwd`>>~/.bashrc
+. ~/.bashrc
+
+
+
 echo "[DEFAULT]
 DBHost = ${DBHost}
 dbauser = ${dbauser}
 Password = ${Password}
 ServiceName = ${ServiceName}">.config
 
-#echo "sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @cleanup.sql"
-#echo "sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @install.sql"
 
-sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @cleanup.sql
-sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @install.sql
-sqlplus -s aq_admin/WElcome##123@${DBHost}:1521/${ServiceName} @aq_admin.sql
-sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @01.sql
-sqlplus -s aq_admin/WElcome##123@${DBHost}:1521/${ServiceName} @02.sql
-sqlplus -s aq_admin/WElcome##123@${DBHost}:1521/${ServiceName} @03.sql
-sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @04.sql
+sqlplus -s ${dbauser}/${Password}@$DBNAME @cleanup.sql
+#sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @install.sql
+#sqlplus -s aq_admin/WElcome##123@${DBHost}:1521/${ServiceName} @aq_admin.sql
+#sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @01.sql
+#sqlplus -s aq_admin/WElcome##123@${DBHost}:1521/${ServiceName} @02.sql
+#sqlplus -s aq_admin/WElcome##123@${DBHost}:1521/${ServiceName} @03.sql
+#sqlplus -s ${dbauser}/${Password}@${DBHost}:1521/${ServiceName} @04.sql
 
 
