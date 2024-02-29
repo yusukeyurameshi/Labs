@@ -16,6 +16,18 @@ echo "dbauser= system"
 echo "Password= WElcome##123"
 echo "ServiceName= dbteste_pdb1.public.vcngru.oraclevcn.com"
 
+
+
+export DBHost=146.235.49.161
+export ServiceName=dbteste_pdb1.public.vcngru.oraclevcn.com
+
+sed -i 's/dbhost/${DBHost}/g' tnsnames.ora
+sed -i 's/dbservicename/${ServiceName}/g' tnsnames.ora
+
+echo "export TNSADMIN="`pwd`>>~/.bashrc
+. ~/.bashrc
+
+exit
 echo -n "DB Host: "
 read -r DBHost
 
