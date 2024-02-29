@@ -22,7 +22,7 @@ export ServiceName=dbteste_pdb1.public.vcngru.oraclevcn.com
 sed -i 's/dbhost/'${DBHost}'/g' tnsnames.ora
 sed -i 's/dbservicename/'${ServiceName}'/g' tnsnames.ora
 
-echo "export TNSADMIN="`pwd`>>~/.bashrc
+echo "export TNS_ADMIN="`pwd`>>~/.bashrc
 . ~/.bashrc
 
 exit
